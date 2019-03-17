@@ -45,15 +45,31 @@ document.getElementById('BtnDonate').addEventListener('click', function(){
 });
 
 
-function getAuthorAndYearString(i){
-	return 'This speech was written by ' + speechesArray[i].author + ' in ' + speechesArray[i].year + '. <br>';
+function getAuthorAndYearString(x){
+	return 'This speech was written by ' + speechesArray[x].author + ' in ' + speechesArray[x].year + '. <br>';
 };
 
-function displayBCEString(i){
-	if(speechesArray[i].yearIsBCE === true){
+function displayBCEString(x){
+	if(speechesArray[x].yearIsBCE === true){
 		return 'This speech took place before the common era.<br>';
 	} else {
 		return 'This speech took place during the common era.<br>';
+	}
+};
+
+function getOldestOrYoungestString(i){
+	var oldest = speechesArray[i].year,
+	var newest = speechesArray[i].year,
+	
+	for(var i = 0; i < speechesArray.length; i++){
+		if(speechesArray[i].year < oldest){
+			return 'This is the oldest speech on the page.<br>';
+		}
+		if(speechesArray[i].year > newest){
+			return 'This is the most recent speech on the page.<br>';
+		} else {
+			return 'This is neither the oldest nor most recent speech on the page.<br>';
+		}
 	}
 };
 

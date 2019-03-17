@@ -57,15 +57,15 @@ function displayBCEString(x){
 	}
 };
 
-function getOldestOrYoungestString(i){
-	var oldest = speechesArray[i].year,
-	var newest = speechesArray[i].year,
+function getOldestOrYoungestString(whichSpeech){
+	var oldest = speechesArray[0].year,
+	newest = speechesArray[0].year;
 	
 	for(var i = 0; i < speechesArray.length; i++){
 		if(speechesArray[i].year < oldest){
 			return 'This is the oldest speech on the page.<br>';
 		}
-		if(speechesArray[i].year > newest){
+		else if(speechesArray[i].year > newest){
 			return 'This is the most recent speech on the page.<br>';
 		} else {
 			return 'This is neither the oldest nor most recent speech on the page.<br>';
@@ -82,6 +82,7 @@ document.getElementById('BtnChurchill').addEventListener('click', function(){
   document.getElementById('ConsoleDisplay').innerHTML += displayBCEString(0);
 
   document.getElementById('ConsoleDisplay').innerHTML += getOldestOrYoungestString(0);
+});
 
 document.getElementById('BtnGhandi').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Ghandi" button.
@@ -89,25 +90,8 @@ document.getElementById('BtnGhandi').addEventListener('click', function(){
   document.getElementById('ConsoleDisplay').innerHTML = getAuthorAndYearString(1);
 
   document.getElementById('ConsoleDisplay').innerHTML += displayBCEString(1);
-
-  var oldest = speechesArray[0].year,
-      newest = speechesArray[0].year;
-
-  for(var i = 0; i < speechesArray.length; i++){
-    if(speechesArray[i].year < oldest){
-      oldest = speechesArray[i].year;
-    }
-    if(speechesArray[i].year > newest){
-      newest = speechesArray[i].year;
-    }
-  }
-
-  if(speechesArray[1].year === oldest){
-    document.getElementById('ConsoleDisplay').innerHTML += 'This is the oldest speech on the page.<br>';
-  }
-  if(speechesArray[1].year === newest){
-    document.getElementById('ConsoleDisplay').innerHTML += 'This is the most recent speech on the page.<br>';
-  }
+  
+  document.getElementById('ConsoleDisplay').innerHTML += getOldestOrYoungestString(1);
 });
 
 document.getElementById('BtnDemosthenes').addEventListener('click', function(){
@@ -116,23 +100,7 @@ document.getElementById('BtnDemosthenes').addEventListener('click', function(){
   document.getElementById('ConsoleDisplay').innerHTML = getAuthorAndYearString(2);
 
   document.getElementById('ConsoleDisplay').innerHTML += displayBCEString(2);
+  
+  document.getElementById('ConsoleDisplay').innerHTML += getOldestOrYoungestString(2);
 
-  var oldest = speechesArray[0].year,
-      newest = speechesArray[0].year;
-
-  for(var i = 0; i < speechesArray.length; i++){
-    if(speechesArray[i].year < oldest){
-      oldest = speechesArray[i].year;
-    }
-    if(speechesArray[i].year > newest){
-      newest = speechesArray[i].year;
-    }
-  }
-
-  if(speechesArray[2].year === oldest){
-    document.getElementById('ConsoleDisplay').innerHTML += 'This is the oldest speech on the page.<br>';
-  }
-  if(speechesArray[2].year === newest){
-    document.getElementById('ConsoleDisplay').innerHTML += 'This is the most recent speech on the page.<br>';
-  }
 });

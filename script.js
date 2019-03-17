@@ -44,8 +44,15 @@ document.getElementById('BtnDonate').addEventListener('click', function(){
   document.getElementById('SideNav').appendChild(donationDisplay);
 });
 
+
+function getAuthorAndYearString (){
+	console.log(return 'This speech was written by ' + speechesArray[x].author + ' in ' + speechesArray[x].year + '<br>';);
+};
+
 document.getElementById('BtnChurchill').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Churchill" button.
+  
+  
   document.getElementById('ConsoleDisplay').innerHTML = 'This speech was written by ' + speechesArray[0].author + ' in ' + speechesArray[0].year + '<br>';
 
   if(speechesArray[0].yearIsBCE === true){

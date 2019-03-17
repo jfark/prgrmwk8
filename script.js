@@ -90,11 +90,7 @@ document.getElementById('BtnGhandi').addEventListener('click', function(){
 	
   document.getElementById('ConsoleDisplay').innerHTML = getAuthorAndYearString(1);
 
-  if(speechesArray[1].yearIsBCE === true){
-    document.getElementById('ConsoleDisplay').innerHTML += 'This speech took place before the common era.<br>';
-  }else{
-    document.getElementById('ConsoleDisplay').innerHTML += 'This speech took place during the common era.<br>';
-  }
+  document.getElementById('ConsoleDisplay').innerHTML += displayBCEString(1);
 
   var oldest = speechesArray[0].year,
       newest = speechesArray[0].year;
@@ -121,12 +117,7 @@ document.getElementById('BtnDemosthenes').addEventListener('click', function(){
   
   document.getElementById('ConsoleDisplay').innerHTML = getAuthorAndYearString(2);
 
-
-  if(speechesArray[2].yearIsBCE === true){
-    document.getElementById('ConsoleDisplay').innerHTML += 'This speech took place before the common era.<br>';
-  }else{
-    document.getElementById('ConsoleDisplay').innerHTML += 'This speech took place during the common era.<br>';
-  }
+  document.getElementById('ConsoleDisplay').innerHTML += displayBCEString(2);
 
   var oldest = speechesArray[0].year,
       newest = speechesArray[0].year;

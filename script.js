@@ -57,20 +57,26 @@ function displayBCEString(x){
 	}
 };
 
-function getOldestOrYoungestString(whichSpeech){
-	var oldest = speechesArray[0].year,
-	newest = speechesArray[0].year;
+function getOldestOrYoungestString(x){
+	var oldest = speechesArray[x].year,
+	newest = speechesArray[x].year;
 	
 	for(var i = 0; i < speechesArray.length; i++){
 		if(speechesArray[i].year < oldest){
-			return 'This is the oldest speech on the page.<br>';
+			oldest = speechesArray[i].year;
 		}
-		else if(speechesArray[i].year > newest){
-			return 'This is the most recent speech on the page.<br>';
-		} else {
-			return 'This is neither the oldest nor most recent speech on the page.<br>';
-		}
+		if(speechesArray[i].year > newest){
+			newest = speechesArray[i].year;
+		} 
 	}
+    if(speechesArray[x].year === oldest){
+      return 'This is the oldest speech on the page.<br>';
+    }
+    if(speechesArray[x].year === newest){
+      return 'This is the most recent speech on the page.<br>';
+    } else {
+    	return 'This is neither oldest nor the most recent speech on the page.<br>';
+    }
 };
 
 

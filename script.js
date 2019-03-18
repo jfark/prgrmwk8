@@ -75,7 +75,7 @@ function getOldestOrYoungestString(x){
     if(speechesArray[x].year === newest){
       return 'This is the most recent speech on the page.<br>';
     } else {
-    	return 'This is neither oldest nor the most recent speech on the page.<br>';
+    	return 'This is neither the oldest nor the most recent speech on the page.<br>';
     }
 };
 
